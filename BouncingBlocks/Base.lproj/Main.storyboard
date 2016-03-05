@@ -17,12 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ob-8R-zsS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ob-8R-zsS" customClass="BezierPathsView" customModule="BouncingBlocks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dUR-yr-VuN" appends="YES" id="R6F-N0-pMg"/>
+                                    <outletCollection property="gestureRecognizers" destination="hSi-BB-Hne" appends="YES" id="hxD-Tx-gVS"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -45,6 +46,11 @@
                         <action selector="createBlock:" destination="BYZ-38-t0r" id="CMM-bH-anG"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hSi-BB-Hne">
+                    <connections>
+                        <action selector="grabBlock:" destination="BYZ-38-t0r" id="BsW-zk-IJ2"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="265" y="390"/>
         </scene>

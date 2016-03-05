@@ -15,6 +15,7 @@
 		79F008881C8A83C2000EDD4C /* BouncingBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F008871C8A83C2000EDD4C /* BouncingBlocksViewController.swift */; };
 		79F0088A1C8A852E000EDD4C /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F008891C8A852E000EDD4C /* GameSettings.swift */; };
 		79F008901C8AA59A000EDD4C /* BouncingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0088F1C8AA59A000EDD4C /* BouncingBehavior.swift */; };
+		79F008941C8ABF31000EDD4C /* BezierPathsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F008931C8ABF31000EDD4C /* BezierPathsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		79F008871C8A83C2000EDD4C /* BouncingBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBlocksViewController.swift; sourceTree = "<group>"; };
 		79F008891C8A852E000EDD4C /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		79F0088F1C8AA59A000EDD4C /* BouncingBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBehavior.swift; sourceTree = "<group>"; };
+		79F008931C8ABF31000EDD4C /* BezierPathsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierPathsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		79F0088B1C8A8A46000EDD4C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				79F008931C8ABF31000EDD4C /* BezierPathsView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F008941C8ABF31000EDD4C /* BezierPathsView.swift in Sources */,
 				79F0088A1C8A852E000EDD4C /* GameSettings.swift in Sources */,
 				79E7AE961C897B9200C60488 /* BouncingBlocks.xcdatamodeld in Sources */,
 				79E7AE8E1C897B9100C60488 /* AppDelegate.swift in Sources */,

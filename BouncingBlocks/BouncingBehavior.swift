@@ -32,6 +32,11 @@ class BouncingBehavior: UIDynamicBehavior {
         addChildBehavior(blockBounceBehavior)
     }
     
+    func addBarrier(name:String, path: UIBezierPath) {
+        collider.removeBoundaryWithIdentifier(name)
+        collider.addBoundaryWithIdentifier(name, forPath: path)
+    }
+    
     func addBounceBehavior(blockView: UIView) {
         self.dynamicAnimator?.referenceView?.addSubview(blockView)
         gravity.addItem(blockView)

@@ -10,7 +10,7 @@ import UIKit
 
 class BouncingBlocksViewController: UIViewController, UIDynamicAnimatorDelegate {
     
-    @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var gameView: BezierPathsView!
     
     lazy var animator: UIDynamicAnimator = {
         let lazilyCreatedDynamicAnimator = UIDynamicAnimator(referenceView: self.gameView)
@@ -22,7 +22,61 @@ class BouncingBlocksViewController: UIViewController, UIDynamicAnimatorDelegate 
         removeCompletedRow()
     }
     
+    struct PathNames {
+        static let MiddleBarrier = "Middle Barrier"
+        static let Attachment = "Attachment"
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let barrierSize = blockSize
+        let barrierOrigin = CGPoint(x: gameView.bounds.midX - barrierSize.width/2, y: gameView.bounds.midY - barrierSize.height/2)
+        let path = UIBezierPath(ovalInRect: CGRect(origin: barrierOrigin, size: barrierSize))
+        bouncingBehavior.addBarrier(PathNames.MiddleBarrier, path: path)
+        gameView.setPath(PathNames.MiddleBarrier, path: path)
+    }
+    
     let bouncingBehavior = BouncingBehavior()
+    
+    var attachmentBehavior: UIAttachmentBehavior? {
+        willSet {
+            if attachmentBehavior != nil {
+                animator.removeBehavior(attachmentBehavior!)
+                gameView.setPath(PathNames.Attachment, path: nil)
+            }
+        }
+        didSet {
+            if attachmentBehavior != nil {
+                animator.addBehavior(attachmentBehavior!)
+                attachmentBehavior?.action = {
+                    if let attachedView =  self.attachmentBehavior?.items.first as? UIView {
+                        let path = UIBezierPath()
+                        path.moveToPoint(self.attachmentBehavior!.anchorPoint)
+                        path.addLineToPoint(attachedView.center)
+                        self.gameView.setPath(PathNames.Attachment, path: path)
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func grabBlock(sender: UIPanGestureRecognizer) {
+        let gesturePoint = sender.locationInView(gameView)
+        switch sender.state {
+        case .Began:
+            if let viewToAttachTo = lastBlockView {
+                attachmentBehavior = UIAttachmentBehavior(item: viewToAttachTo, attachedToAnchor: gesturePoint)
+                lastBlockView = nil
+            }
+        case .Changed:
+            attachmentBehavior?.anchorPoint = gesturePoint
+        case .Ended:
+            attachmentBehavior = nil
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +92,17 @@ class BouncingBlocksViewController: UIViewController, UIDynamicAnimatorDelegate 
         block()
     }
     
+    private var lastBlockView:UIView?
+    
     func block() {
         var frame = CGRect(origin: CGPointZero, size: blockSize)
         frame.origin.x = CGFloat.random(GameSettings.blocksPerRow) * blockSize.width
         
         let blockView = UIView(frame: frame)
         blockView.backgroundColor = UIColor.random
+        
+        lastBlockView = blockView
+        
         bouncingBehavior.addBounceBehavior(blockView)
     }
     
