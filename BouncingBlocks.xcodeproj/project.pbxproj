@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		79E7AE8E1C897B9100C60488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AE8D1C897B9100C60488 /* AppDelegate.swift */; };
-		79E7AE901C897B9100C60488 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AE8F1C897B9100C60488 /* ViewController.swift */; };
 		79E7AE931C897B9100C60488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E7AE911C897B9100C60488 /* Main.storyboard */; };
 		79E7AE961C897B9200C60488 /* BouncingBlocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AE941C897B9200C60488 /* BouncingBlocks.xcdatamodeld */; };
 		79E7AE981C897B9200C60488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E7AE971C897B9200C60488 /* Assets.xcassets */; };
 		79E7AE9B1C897B9200C60488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E7AE991C897B9200C60488 /* LaunchScreen.storyboard */; };
+		79F008881C8A83C2000EDD4C /* BouncingBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F008871C8A83C2000EDD4C /* BouncingBlocksViewController.swift */; };
+		79F0088A1C8A852E000EDD4C /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F008891C8A852E000EDD4C /* GameSettings.swift */; };
+		79F008901C8AA59A000EDD4C /* BouncingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0088F1C8AA59A000EDD4C /* BouncingBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		79E7AE8A1C897B9100C60488 /* BouncingBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BouncingBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7AE8D1C897B9100C60488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79E7AE8F1C897B9100C60488 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79E7AE921C897B9100C60488 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79E7AE951C897B9200C60488 /* BouncingBlocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BouncingBlocks.xcdatamodel; sourceTree = "<group>"; };
 		79E7AE971C897B9200C60488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79E7AE9A1C897B9200C60488 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79E7AE9C1C897B9200C60488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79F008871C8A83C2000EDD4C /* BouncingBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBlocksViewController.swift; sourceTree = "<group>"; };
+		79F008891C8A852E000EDD4C /* GameSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		79F0088F1C8AA59A000EDD4C /* BouncingBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,11 @@
 		79E7AE8C1C897B9100C60488 /* BouncingBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				79F0088E1C8A8A6E000EDD4C /* constants */,
+				79F0088D1C8A8A5A000EDD4C /* models */,
+				79F0088C1C8A8A50000EDD4C /* controllers */,
+				79F0088B1C8A8A46000EDD4C /* views */,
 				79E7AE8D1C897B9100C60488 /* AppDelegate.swift */,
-				79E7AE8F1C897B9100C60488 /* ViewController.swift */,
 				79E7AE911C897B9100C60488 /* Main.storyboard */,
 				79E7AE971C897B9200C60488 /* Assets.xcassets */,
 				79E7AE991C897B9200C60488 /* LaunchScreen.storyboard */,
@@ -65,6 +72,37 @@
 				79E7AE941C897B9200C60488 /* BouncingBlocks.xcdatamodeld */,
 			);
 			path = BouncingBlocks;
+			sourceTree = "<group>";
+		};
+		79F0088B1C8A8A46000EDD4C /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		79F0088C1C8A8A50000EDD4C /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79F008871C8A83C2000EDD4C /* BouncingBlocksViewController.swift */,
+				79F0088F1C8AA59A000EDD4C /* BouncingBehavior.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		79F0088D1C8A8A5A000EDD4C /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		79F0088E1C8A8A6E000EDD4C /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				79F008891C8A852E000EDD4C /* GameSettings.swift */,
+			);
+			name = constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E7AE901C897B9100C60488 /* ViewController.swift in Sources */,
+				79F0088A1C8A852E000EDD4C /* GameSettings.swift in Sources */,
 				79E7AE961C897B9200C60488 /* BouncingBlocks.xcdatamodeld in Sources */,
 				79E7AE8E1C897B9100C60488 /* AppDelegate.swift in Sources */,
+				79F008881C8A83C2000EDD4C /* BouncingBlocksViewController.swift in Sources */,
+				79F008901C8AA59A000EDD4C /* BouncingBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +331,7 @@
 				79E7AEA11C897B9200C60488 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
